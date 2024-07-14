@@ -9,8 +9,9 @@ class Group(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField()
 
-    def __str__(self):
-        return self.title
+    def __str__(self) -> str:
+        title = str(self.title)
+        return title
 
 
 class Post(models.Model):
@@ -29,8 +30,9 @@ class Post(models.Model):
         related_name='posts', blank=True, null=True
     )
 
-    def __str__(self):
-        return self.text
+    def __str__(self) -> str:
+        text = str(self.text)
+        return text
 
 
 class Comment(models.Model):
@@ -44,3 +46,7 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True
     )
+
+    def __str__(self) -> str:
+        text = str(self.text)
+        return text
